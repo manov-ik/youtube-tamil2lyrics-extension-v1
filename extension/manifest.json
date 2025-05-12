@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Lyrics Generator",
+  "version": "1.0",
+  "description": "A YouTube extension that can fetches Tamil song lyrics from tamil2lyrics.com as you watch.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "http://localhost:5000/*",
+    "https://your-deployed-backend-url.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+} 
